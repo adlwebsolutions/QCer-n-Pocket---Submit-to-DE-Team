@@ -229,7 +229,14 @@ export function validateCorporateNameAndJobTitle(corporateName, jobTitle) {
     return { valid: true, message: "No corporate name found." };
 
   // ✅ Keywords you want to check for
-  const keywords = ["college", "institute", "esi"];
+  const keywords = [
+    "Railway",
+    "academy",
+    "college",
+    "institute",
+    "CGHS",
+    "Army",
+  ];
 
   // Normalize everything to lowercase for comparison
   const jobTitleLower = jobTitle ? jobTitle.toLowerCase() : "no value";

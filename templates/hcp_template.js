@@ -185,7 +185,7 @@ export const hcpTemplate = async (tabId, outputDiv) => {
             color:white;
             background:linear-gradient(135deg, #FFA500, #FF8C00);
           ">
-            Dup HCO'n Same Parent
+            Same Parent HCO
           </span>`
           : "";
 

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Error Fixer",
+  "name": "QCer'n Pocket",
   "version": "1.0.0",
-  "description": "A Chrome extension for fixing errors and tracking HCP/HCO data.",
+  "description": "A Chrome extension for Noticing errors & Quick Overview",
 
   "permissions": ["storage", "activeTab", "scripting"],
 

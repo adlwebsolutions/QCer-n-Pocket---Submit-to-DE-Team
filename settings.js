@@ -10,7 +10,7 @@ chrome.storage.local.get(["selectedFields"], (result) => {
   checkboxes.forEach((cb) => {
     cb.checked = savedFields.includes(cb.id);
   });
-  updateClickedFields(savedFields);
+  // updateClickedFields(savedFields);
 });
 
 // Listen for checkbox changes
@@ -24,7 +24,7 @@ checkboxes.forEach((cb) => {
         selectedFields = selectedFields.filter((f) => f !== cb.id);
       }
       chrome.storage.local.set({ selectedFields });
-      updateClickedFields(selectedFields);
+      // updateClickedFields(selectedFields);
     });
   });
 });
