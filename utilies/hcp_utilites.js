@@ -1,3 +1,7 @@
+/*
+ * Snippets Name: HCP Template Snippets
+ * Description: Snippets Works for HCP Templates
+ */
 export const getFieldValue = (selector) => {
   const el = document.querySelector(selector);
   return el ? el.textContent.trim() : null;

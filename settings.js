@@ -1,3 +1,7 @@
+/*
+ * Snippet Name: Settings Popup
+ * Description: To customize the Values to show based on Work Insturction
+ */
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 // Load saved state from storage

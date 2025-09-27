@@ -1,3 +1,7 @@
+/*
+ * Popup Name: Qcer'n Pocket
+ * Description: Detect the page and show the Quick view, based on the Record
+ */
 import { hcpTemplate } from "./templates/hcp_template.js";
 
 document.addEventListener("DOMContentLoaded", async () => {

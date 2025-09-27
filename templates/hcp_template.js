@@ -1,3 +1,7 @@
+/*
+ * Template Name: HCP Template
+ * Description: Template Works in HCP Records, Quick View of Relevent Fields to Data Stewards.
+ */
 import { formatMiddleName } from "../utilies/hcp_utilites.js";
 import { formatGradYr } from "../utilies/hcp_utilites.js";
 import { formatValue } from "../utilies/hcp_utilites.js";
