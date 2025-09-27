@@ -1,0 +1,122 @@
+body {
+  font-family: sans-serif;
+  min-width: 250px;
+  padding: 6px;
+  background: #f0f0f0;
+}
+
+#output {
+  background-color: #fcfcfc;
+  padding: 12px;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+.hcp-heading {
+  font-weight: bold;
+  color: white;
+  background-color: gray;
+  padding: 5px 5px;
+  border-radius: 5px;
+  display: inline-block;
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+  margin-top: 4px;
+}
+
+.hcp_aff-row {
+  border-bottom: 1px solid #ccc;
+}
+/* Make the row display as flex so content and icon stay on the same line */
+.hcp-row {
+  border-bottom: 1px solid #ccc;
+
+  display: flex;
+  align-items: center; /* vertically center text and icon */
+  justify-content: space-between; /* push icon to the end */
+  gap: 8px; /* optional space between text and icon */
+  margin-bottom: 5px; /* optional spacing between rows */
+}
+/* Container holding heading and copy icon */
+.hcp-heading-row {
+  display: flex;
+  align-items: center; /* vertically center heading and icon */
+  justify-content: space-between; /* space between heading and icon */
+  margin-bottom: 8px; /* optional spacing below row */
+}
+
+/* Heading style */
+.hcp-heading-row .hcp-heading {
+  font-weight: bold;
+}
+
+/* Copy icon style */
+.hcp-heading-row .copy-icon {
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none; /* prevent text selection */
+}
+
+.hcp-heading-row .copy-icon:hover {
+  color: #007bff; /* blue on hover */
+}
+
+/* Style for the copy icon */
+.copy-icon {
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff; /* blue color */
+  user-select: none; /* prevent selecting icon text */
+}
+
+.copy-icon:hover {
+  color: #0056b3; /* darker blue on hover */
+}
+
+/* Container for heading + copy-all icon */
+.hcp-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* Copy all icon */
+.copy-all-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.copy-all-icon:hover {
+  color: #28a745; /* change color on hover */
+  transform: scale(1.2); /* slightly enlarge */
+}
+
+.settings-icon {
+  cursor: pointer;
+  font-size: 10px;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.settings-icon:hover {
+  color: #007bff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 12px;
+}
+.header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #222;
+}

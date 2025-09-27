@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        width: 260px;
+        margin: 0;
+        padding: 0;
+        background: #f9fafb;
+        color: #333;
+      }
+
+      .container {
+        padding: 12px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 8px 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        margin-bottom: 12px;
+      }
+
+      .header h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        color: #222;
+      }
+
+      .home-icon i {
+        cursor: pointer;
+        font-size: 18px;
+        color: #555;
+        transition: color 0.2s ease, transform 0.15s ease;
+      }
+
+      .home-icon i:hover {
+        color: #007bff;
+        transform: scale(1.1);
+      }
+
+      .checkbox-group {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 10px 12px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        font-size: 14px;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .checkbox-group label:last-child {
+        border-bottom: none;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        accent-color: #007bff;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3>Select Fields Based on WI</h3>
+        <span class="home-icon" title="Settings"
+          ><i
+            class="fa-solid fa-house"
+            style="cursor: pointer; font-size: 18px"
+            title="Home"
+          ></i
+        ></span>
+      </div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="name" /> Name</label>
+        <label><input type="checkbox" id="registrar" /> Registrar</label>
+        <label><input type="checkbox" id="gender" /> Gender</label>
+        <label><input type="checkbox" id="license" /> License</label>
+        <label
+          ><input type="checkbox" id="validateCRR" /> Candidate Review
+          Result</label
+        >
+        <label
+          ><input type="checkbox" id="hcoAff-field" /> HCO Affiliation</label
+        >
+      </div>
+    </div>
+
+    <script src="settings.js"></script>
+  </body>
+</html>
