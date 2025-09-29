@@ -1,14 +1,14 @@
 === Qcer'n Pocket - Dedicatedly Build For DataStewards===
 Contributors: Arunodayam
 Version: 1.0
-Description: A productivity extension to  quickly identify the Values & Update Error Notice.
+Description: A productivity extension to  quickly identify the Invalid Values & Update Error Notice.
 Requires at least: Chrome 88
 Tested up to: Chrome 134
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
 ==Description==
-QCer'n Pocket is a productivity extension designed for data stewards to save, manage, and quickly identify values & update them efficiently.
+QCer'n Pocket is a productivity extension designed for data stewards to quickly identify the Invalid Values & Update Error Notice.
 
 Features include:
 
