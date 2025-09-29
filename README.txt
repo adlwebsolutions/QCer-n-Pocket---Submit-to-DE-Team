@@ -1,7 +1,7 @@
 === Qcer'n Pocket - Dedicatedly Build For DataStewards===
 Contributors: Arunodayam
 Version: 1.0
-Description: A productivity extension to Quickly Identify the Values & Update.
+Description: A productivity extension to save, manage, and quickly Identify the Values & Update.
 Requires at least: Chrome 88
 Tested up to: Chrome 134
 License: MIT

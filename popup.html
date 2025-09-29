@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Pocket Qcer</title>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,9 +18,10 @@
         >Settings</span
       >
     </div>
-
-    <div id="output">Waiting for value...</div>
-
+    <div id="output" class="loading">
+      <span class="loader"></span>
+      <span class="loading-text">Waiting for value...</span>
+    </div>
     <!-- Script should be at the end of body -->
     <script type="module" src="popup.js"></script>
   </body>

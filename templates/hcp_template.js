@@ -185,7 +185,7 @@ export const hcpTemplate = async (tabId, outputDiv) => {
             color:white;
             background:linear-gradient(135deg, #FFA500, #FF8C00);
           ">
-            Same Parent HCO
+          Check Same Parent HCO Exists
           </span>`
           : "";
 

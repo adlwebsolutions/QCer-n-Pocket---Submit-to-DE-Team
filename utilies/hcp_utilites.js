@@ -230,12 +230,12 @@ export function validateCorporateNameAndJobTitle(corporateName, jobTitle) {
 
   // ✅ Keywords you want to check for
   const keywords = [
-    "Railway",
+    "railway",
     "academy",
     "college",
     "institute",
-    "CGHS",
-    "Army",
+    "cghs",
+    "army",
   ];
 
   // Normalize everything to lowercase for comparison
@@ -269,7 +269,7 @@ export function validateCorporateNameAndJobTitle(corporateName, jobTitle) {
 }
 
 // ✅ QuerySelector-based function to get all Parent HCOs
-export async function getAllHCOValues(waitTime = 100) {
+export async function getAllHCOValues(waitTime = 300) {
   // 1️⃣ Select all HCO elements with ordinal data-marker
   const hcoElements = document.querySelectorAll(
     '[data-marker^="child-object ParentHCOsItemType ordinal-"]'
@@ -282,10 +282,20 @@ export async function getAllHCOValues(waitTime = 100) {
   for (const hco of hcoElements) {
     // Expand the HCO section if there is a collapse/expand button
     const expandBtn = hco.querySelector('[data-marker="child-object-header"]');
-    if (expandBtn) expandBtn.click();
+    const contentEl = hco.querySelector('[data-marker="child-object-content"]');
+
+    // Determine if section is open by checking if content is visible
+    const isOpen = contentEl && contentEl.offsetParent !== null;
+    // (offsetParent === null means it's hidden)
+
+    if (!isOpen && expandBtn) {
+      expandBtn.click(); // open it
+      await new Promise((resolve) => setTimeout(resolve, waitTime));
+    }
+    // if (expandBtn) expandBtn.click();
 
     // Wait for content to load
-    await new Promise((resolve) => setTimeout(resolve, waitTime));
+    // await new Promise((resolve) => setTimeout(resolve, waitTime));
 
     // Corporate Name
     const corporateNameEl = hco.querySelector(
@@ -298,7 +308,7 @@ export async function getAllHCOValues(waitTime = 100) {
         }
       : null;
 
-    const addressElement = document.querySelector(
+    const addressElement = hco.querySelector(
       'dl[data-marker="phco-summary-address-field"] dd'
     );
 
@@ -325,6 +335,11 @@ export async function getAllHCOValues(waitTime = 100) {
       jobTitle,
       addressValue,
     });
+
+    // // ✅ Close tab if we had to open it
+    if (!isOpen && expandBtn) {
+      expandBtn.click();
+    }
   }
 
   return results;
