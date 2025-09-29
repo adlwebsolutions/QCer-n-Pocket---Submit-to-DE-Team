@@ -32,19 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           return "HCP";
         }
 
-        // // Check HCO page
-        // const hcoEl = document.evaluate(
-        //   '//*[@id="primary"]/div[2]/ul/li[1]/dl/dt/div[1]/span[1]',
-        //   document,
-        //   null,
-        //   XPathResult.FIRST_ORDERED_NODE_TYPE,
-        //   null
-        // ).singleNodeValue;
-
-        // if (hcoEl && hcoEl.textContent.trim() === "Corporate Name") {
-        //   return "HCO";
-        // }
-
         return "Unknown";
       },
     });

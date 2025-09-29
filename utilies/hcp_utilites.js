@@ -233,9 +233,27 @@ export function validateCorporateNameAndJobTitle(corporateName, jobTitle) {
     "railway",
     "academy",
     "college",
-    "institute",
+    "Base hospital",
     "cghs",
     "army",
+    "sub-divisional",
+    "sub divisional",
+    "esi",
+    "esis",
+    "esic",
+    "railway",
+    "employee state insurance",
+    "central government health scheme",
+    "command",
+    "cantonment",
+    "military",
+    "dispensary",
+    "dispensaries",
+    "wellness centre",
+    "wellness center",
+    "armed force",
+    "health unit",
+    "health scheme",
   ];
 
   // Normalize everything to lowercase for comparison
@@ -243,10 +261,11 @@ export function validateCorporateNameAndJobTitle(corporateName, jobTitle) {
 
   // Normalize corporate name: lowercase & remove punctuation
   const corpNameNormalized = corporateName
+    .split("-")[0] // take only the part before the dash
     .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ") // replace anything that's not a-z, 0-9 or space with a space
-    .replace(/\s+/g, " "); // collapse multiple spaces
-
+    .replace(/[^a-z0-9\s]/g, " ") // replace special chars with space
+    .replace(/\s+/g, " ") // collapse multiple spaces
+    .trim();
   // Check if any keyword exists
   const containsKeyword = keywords.some((kw) =>
     corpNameNormalized.includes(kw)
