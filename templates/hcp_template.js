@@ -143,7 +143,10 @@ export const hcpTemplate = async (tabId, outputDiv) => {
       const hcoAddress = hco.hcoAddress || "No Address";
 
       // Normalize corporate name (take only base part before slash)
-      const baseCorporateName = corporateName.split("-")[0].trim();
+      const baseCorporateName = corporateName
+        .toLowerCase()
+        .split("/")[0]
+        .trim();
 
       // Group HCOs by address
       if (!groupedByAddress[hcoAddress]) {
@@ -162,7 +165,6 @@ export const hcpTemplate = async (tabId, outputDiv) => {
       const group = groupedByAddress[address];
 
       group.forEach((hco) => {
-        // Find duplicates within same address that share same baseCorporateName
         const duplicates = group.filter(
           (other) =>
             other.baseCorporateName === hco.baseCorporateName &&
