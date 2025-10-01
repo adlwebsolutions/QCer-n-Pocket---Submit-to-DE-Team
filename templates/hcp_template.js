@@ -133,8 +133,7 @@ export const hcpTemplate = async (tabId, outputDiv) => {
 
   if (hcoDataArray.length > 0) {
     // First, group by address
-    const groupedByAddress = {};
-
+    const groupedByBaseName = {};
     hcoDataArray.forEach((hco) => {
       const corporateName =
         hco.corporateName?.text || "No Corporate Name Found";
@@ -148,27 +147,25 @@ export const hcpTemplate = async (tabId, outputDiv) => {
         .split("/")[0]
         .trim();
 
-      // Group HCOs by address
-      if (!groupedByAddress[hcoAddress]) {
-        groupedByAddress[hcoAddress] = [];
+      if (!groupedByBaseName[baseCorporateName]) {
+        groupedByBaseName[baseCorporateName] = [];
       }
 
-      groupedByAddress[hcoAddress].push({
+      groupedByBaseName[baseCorporateName].push({
         ...hco,
         corporateName,
         baseCorporateName,
+        hcoAddress,
       });
     });
-
     // Now check duplicates inside each address group
-    for (const address in groupedByAddress) {
-      const group = groupedByAddress[address];
+    for (const baseName in groupedByBaseName) {
+      const group = groupedByBaseName[baseName];
 
-      group.forEach((hco) => {
+      group.forEach((hco, index) => {
+        // Check if another HCO has same address
         const duplicates = group.filter(
-          (other) =>
-            other.baseCorporateName === hco.baseCorporateName &&
-            other.corporateName !== hco.corporateName
+          (other, i) => i !== index && other.hcoAddress === hco.hcoAddress // ✅ address must match
         );
 
         const isDuplicate = duplicates.length > 0;
