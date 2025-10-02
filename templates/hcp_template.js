@@ -132,24 +132,26 @@ export const hcpTemplate = async (tabId, outputDiv) => {
   let hcoOutputHtml = "";
 
   if (hcoDataArray.length > 0) {
-    // First, group by address
+    // First, group by Name
     const groupedByBaseName = {};
+
     hcoDataArray.forEach((hco) => {
       const corporateName =
         hco.corporateName?.text || "No Corporate Name Found";
       const jobTitle = hco.jobTitle || "No Job Title Found";
       const hcoAffLVD = hco.hcoAffLVD || "No LVD Found";
-      const hcoAddress = hco.hcoAddress || "No Address";
+      const hcoAddress = hco.addressValue || "No Address";
 
       // Normalize corporate name (take only base part before slash)
       const baseCorporateName = corporateName
         .toLowerCase()
-        .split("/")[0]
+        .split("-")[0]
         .trim();
-
+      // Group HCOs by Name
       if (!groupedByBaseName[baseCorporateName]) {
         groupedByBaseName[baseCorporateName] = [];
       }
+      console.log(groupedByBaseName);
 
       groupedByBaseName[baseCorporateName].push({
         ...hco,
@@ -158,7 +160,8 @@ export const hcpTemplate = async (tabId, outputDiv) => {
         hcoAddress,
       });
     });
-    // Now check duplicates inside each address group
+
+    // Now check duplicates inside each Base Name group
     for (const baseName in groupedByBaseName) {
       const group = groupedByBaseName[baseName];
 
