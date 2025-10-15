@@ -171,6 +171,10 @@ export function validateFirstName(name) {
 
   const trimmed = name.trim();
 
+  // 🔹 Split into words to check Title Case
+  const words = trimmed.split(/\s+/);
+  const allTitleCase = words.every((word) => /^[A-Z][a-z]*$/.test(word));
+
   // Rule 1: Reject multi-word values (any spaces) => "Invalid"
   if (/\s/.test(trimmed)) {
     return { valid: false, message: "Invalid" };
@@ -185,6 +189,9 @@ export function validateFirstName(name) {
     return { valid: false, message: "Title Case" };
   }
 
+  if (!allTitleCase) {
+    return { valid: false, message: "Title Case" };
+  }
   // Rule 3: Allow single-letter, two-letter, or a single word of alphabets
   if (
     trimmed.length === 1 ||
@@ -374,7 +381,17 @@ export const highlightSingleLetter = (value, ceValue) => {
   if (trimmed.length === 1) {
     if (!ceValue) {
       // CE XPath is null → show Add CE
-      return `<span style="color:red; font-weight:bold;">${trimmed} - Add CE</span>`;
+      return `<span style="
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(135deg, #ff4d4d, #b22222);
+  ">
+    ${trimmed} - Add CE
+  </span>`;
     }
 
     // Remove leading number(s) and optional space
